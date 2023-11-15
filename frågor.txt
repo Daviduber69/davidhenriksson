@@ -1,0 +1,52 @@
+Jag siktar på VG.
+
+
+Q: När använder man add respektive commit?
+A: Add används för att lägga till filer till ditt staging area
+commit används för att lägga till det du "addat" till ditt lokala repository.
+
+Q: Vad är pull repektive push?
+A: Pull är för att "dra" / ladda ner innehåll från ett remote repository.
+Push är för att ladda upp dina lokala commits till ett remote repository.
+
+Q: När använder man log respektive status?
+A: Log är för att se alla commits du gjort och status är för att se om det finns några commits kvar att göra eller
+om allting redan är commitat.
+
+Q: Vad är en Git branch och varför är de viktiga?
+A: Branches används för att arbeta med saker fristående från sin Master Branch,
+vilket är bra om man vill arbeta i olika versioner av sin kod för att sedan om man vill
+merga den branchen med sin master branch när man är klar.
+
+VG-
+Q: Det finns flera sätt att rulla tillbaka koden till ett tidigare tillstånd.....
+A: Det finns Revert och Reset för att få koden att gå tillbaka till ett tidigare tillstånd.
+Revert används om man vill ändra en commit när t.ex. andra användare redan tagit del av din kod du delat.
+Det kommer upp en commit av revert så man kan beskriva varför man revertar det.
+
+Reset används för att mer aggressivt gå tillbaka i tiden till en särskild commit (beroende på vad man anger)
+Commitsen efter den du gått tillbaka till raderas och om andra användare använder din kod så kommer 
+de att bara kunna ta del av din kod till den punkt du commitade till. Kan vara farligt att använda 
+om man gör fel då commits försvinner permanent.
+
+För att göra exempel på detta:
+git branch test_branch
+git checkout test_branch
+sen kan man ändra t.ex. min Guesser.java
+git add Guesser.java
+git commit -m "added changes to Guesser.java"
+git revert HEAD 
+Sen skriv en kommentar varför du revertat.
+
+för reset gör man samma sak fast:
+git reset --HARD HEAD~1 för att göra en hard reset och återställer till innan den senaste commiten.
+
+Jag gjorde en ny branch som hette test_branch och ändrade en medlemsvariabel till public från private
+och fick en ny revert-commit:
+
+"Revert "Changed membervariable to public from private"
+
+This reverts commit 232e917771e39993d8523d15c6cb290a3a629826.
+
+Reverted this commit <-- mitt egna meddelande"
+
