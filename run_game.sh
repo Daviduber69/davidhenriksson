@@ -3,7 +3,7 @@ mkdir David_Henriksson_labb
 cp Guesser.java David_Henriksson_labb
 cp GuessingGame.java David_Henriksson_labb
 cd David_Henriksson_labb
-pwd
+echo Running game from $(pwd)
 echo Compiling...
 javac Guesser.java
 javac GuessingGame.java
